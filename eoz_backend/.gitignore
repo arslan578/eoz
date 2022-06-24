@@ -1,0 +1,6 @@
+.env
+.env/
+media/
+data-db/
+requirements.txt
+init-db/

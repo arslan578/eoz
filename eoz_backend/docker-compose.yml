@@ -1,0 +1,59 @@
+version: "3"
+
+services:
+  eoz_backend_service:
+    container_name: eoz_backend_container
+    build: .
+    environment:
+      DATABASE_URL: "${DATABASE_URL}"
+      DEBUG: "${DEBUG}"
+      HOST: "${HOST}"
+      SECRET_KEY: "${SECRET_KEY}"
+    volumes:
+      - "./:/eoz_backend"
+      - media_volume:/eoz_backend/media
+      - static_volume:/eoz_backend/static
+    ports:
+      - 8000:8000
+
+    links:
+      - eoz_postgres_service
+
+    depends_on:
+      - eoz_postgres_service
+
+    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && gunicorn eoz_backend.wsgi:application --bind 0.0.0.0:8000"
+
+  eoz_postgres_service:
+    image: postgres:latest
+    restart: always
+    container_name: eoz_postgres_container
+    ports:
+      - 5432:5432
+
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB}"
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
+      - ./data-db:/data/db
+
+  nginx:
+    container_name: eoz_nginx_container
+    build: ./nginx
+    volumes:
+      - static_volume:/eoz_backend/static
+      - media_volume:/eoz_backend/media
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    depends_on:
+      - eoz_backend_service
+
+volumes:
+  static_volume:
+  media_volume:

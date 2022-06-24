@@ -1,0 +1,2076 @@
+{
+	"info": {
+		"_postman_id": "65fd04c1-c25e-4ee6-a38b-f2d2c23c2302",
+		"name": "eoz_backend_api's",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "client@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "tester1234",
+									"type": "text"
+								},
+								{
+									"key": "is_agent",
+									"value": "False",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/signup/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "complete_client_signup",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "arslan",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "zaheer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/complete_client_signup/53/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"complete_client_signup",
+								"53",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_phone_number",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone_number",
+									"value": "+923313340700",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/phone_number/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"phone_number",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify_phone_number",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "verification_code",
+									"value": "8764",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/phone_number/verify_phone_number/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"phone_number",
+								"verify_phone_number",
+								""
+							]
+						},
+						"description": "This API will verify user phone number via Twilio."
+					},
+					"response": []
+				},
+				{
+					"name": "send_email_confirmation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/send_confirmation_email/?user_id=14",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"send_confirmation_email",
+								""
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "14"
+								}
+							]
+						},
+						"description": "This API will confirm user email."
+					},
+					"response": []
+				},
+				{
+					"name": "email_confirmation Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/email/confirm/?uid=NDU&token=5uf-38070d368ddabfb70f05",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"email",
+								"confirm",
+								""
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "NDU"
+								},
+								{
+									"key": "token",
+									"value": "5uf-38070d368ddabfb70f05"
+								}
+							]
+						},
+						"description": "This API will confirm user email."
+					},
+					"response": []
+				},
+				{
+					"name": "change_password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token c75a9cdda722ce9442c42f59ea79087f44952c16",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "genius1234",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "genius1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/password/change/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"password",
+								"change",
+								""
+							]
+						},
+						"description": "This API will let the user change their password."
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "arslanzaheer977@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/reset/password/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reset",
+								"password",
+								""
+							]
+						},
+						"description": "This API call will let users reset their password and an email will be sent to them with instructions."
+					},
+					"response": []
+				},
+				{
+					"name": "reset_password_successfuly",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "new_password1",
+									"value": "arslan12",
+									"type": "text"
+								},
+								{
+									"key": "new_password2",
+									"value": "arslan12",
+									"type": "text"
+								},
+								{
+									"key": "uid",
+									"value": "MQ",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "5tx-62cf5c36b54014575bfc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/rest-auth/password/reset/confirm/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"rest-auth",
+								"password",
+								"reset",
+								"confirm",
+								""
+							]
+						},
+						"description": "This API will create new password for the user."
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "super@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "genius1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/login/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "social-login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "super3\n@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "super1234",
+									"type": "text"
+								},
+								{
+									"key": "is_agent",
+									"value": "True",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/social_login/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"social_login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change_email_phone_number",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "+92331333391",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/change_email_phone_number/1/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"change_email_phone_number",
+								"1",
+								""
+							]
+						},
+						"description": "This API will let user change their email address. They will receive an email after this API call."
+					},
+					"response": []
+				},
+				{
+					"name": "get_user_information",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/user_info/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user_info",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/logout/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "agent",
+			"item": [
+				{
+					"name": "add_agent_personal_information",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "arslan",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "zaheer",
+									"type": "text"
+								},
+								{
+									"key": "date_of_birth",
+									"value": "2021-04-01",
+									"type": "text"
+								},
+								{
+									"key": "nationality",
+									"value": "Australia",
+									"type": "text"
+								},
+								{
+									"key": "street_address",
+									"value": "Australia",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "ABC",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "ABC",
+									"type": "text"
+								},
+								{
+									"key": "zip_code",
+									"value": "R409",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Australia",
+									"type": "text"
+								},
+								{
+									"key": "profile_picture",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/computer_vision/image_processing/resize_overlay_watermark/abc.png"
+								},
+								{
+									"key": "headline",
+									"value": "headline",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description",
+									"type": "text"
+								},
+								{
+									"key": "offer_online",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "offer_offline",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "client_city",
+									"value": "client_city",
+									"type": "text"
+								},
+								{
+									"key": "client_state",
+									"value": "client_state",
+									"type": "text"
+								},
+								{
+									"key": "client_zip_code",
+									"value": "client_zip_code",
+									"type": "text"
+								},
+								{
+									"key": "client_country",
+									"value": "client_country",
+									"type": "text"
+								},
+								{
+									"key": "agent_role",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "languages",
+									"value": "[{\"english\": \"medium\"}, {\"urdu\": \"high\"}]",
+									"type": "text"
+								},
+								{
+									"key": "australian_nation_id",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/computer_vision/image_processing/opencv/sub2.jpg"
+								},
+								{
+									"key": "utility_bill",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/computer_vision/image_processing/opencv/silv4.jpg"
+								},
+								{
+									"key": "education_agent",
+									"value": "False",
+									"type": "text"
+								},
+								{
+									"key": "queac_number",
+									"value": "queac_number",
+									"type": "text"
+								},
+								{
+									"key": "education_agent_certificate",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/OLD_PROJECTS/aim-experts/project_data/aimphoto/backend/o_7cb1c164-78e7-11ea-84f4-80e650049a6e_120444401_2014_Ford_.jpg"
+								},
+								{
+									"key": "education_agent_experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "marn_number",
+									"value": "marn_number",
+									"type": "text"
+								},
+								{
+									"key": "migration_agent_certificate",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/OLD_PROJECTS/aim-experts/project_data/aimphoto/backend/o_9de565e0-78cc-11ea-b32e-80e650049a6e_120444401_2014_Ford_.jpg"
+								},
+								{
+									"key": "migration_agent_experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "naati_certificate",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/OLD_PROJECTS/aim-experts/project_data/aimphoto/backend/o_f45abc80-78cd-11ea-bafc-80e650049a6e_120444401_2014_Ford_.jpg"
+								},
+								{
+									"key": "naati_experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "account_agent_experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "52",
+									"type": "text"
+								},
+								{
+									"key": "client_street_address",
+									"value": "sdsdf",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_personal_information/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_personal_information",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_personal_information",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "arslan",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "zaheer",
+									"type": "text"
+								},
+								{
+									"key": "date_of_birth",
+									"value": "2021-04-01",
+									"type": "text"
+								},
+								{
+									"key": "nationality",
+									"value": "Australia",
+									"type": "text"
+								},
+								{
+									"key": "street_address",
+									"value": "Australia",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "ABC",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "ABC",
+									"type": "text"
+								},
+								{
+									"key": "zip_code",
+									"value": "R409",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Australia",
+									"type": "text"
+								},
+								{
+									"key": "profile_picture",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/computer_vision/image_processing/resize_overlay_watermark/51586a58_a9a3_11ea_b304_80e650049a6e___.png"
+								},
+								{
+									"key": "headline",
+									"value": "headline",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description",
+									"type": "text"
+								},
+								{
+									"key": "offer_online",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "offer_offline",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "client_city",
+									"value": "client_city",
+									"type": "text"
+								},
+								{
+									"key": "client_state",
+									"value": "client_state",
+									"type": "text"
+								},
+								{
+									"key": "client_zip_code",
+									"value": "client_zip_code",
+									"type": "text"
+								},
+								{
+									"key": "client_country",
+									"value": "client_country",
+									"type": "text"
+								},
+								{
+									"key": "agent_roles",
+									"value": "[\"migration_agent\"]",
+									"type": "text"
+								},
+								{
+									"key": "languages",
+									"value": "{\"english\": \"medium\"}",
+									"type": "text"
+								},
+								{
+									"key": "australian_nation_id",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/OLD_PROJECTS/aim-experts/project_data/aimphoto/backend/o_07f0fda4-78e7-11ea-89ef-80e650049a6e_120444401_2014_Ford_.jpg"
+								},
+								{
+									"key": "utility_bill",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/OLD_PROJECTS/aim-experts/project_data/aimphoto/backend/o_9b7d9512-78e4-11ea-b7bf-80e650049a6e_120444401_2014_Ford_.jpg"
+								},
+								{
+									"key": "education_agent",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "queac_number",
+									"value": "queac_number",
+									"type": "text"
+								},
+								{
+									"key": "education_agent_certificate",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/OLD_PROJECTS/aim-experts/project_data/aimphoto/backend/o_7cb1c164-78e7-11ea-84f4-80e650049a6e_120444401_2014_Ford_.jpg"
+								},
+								{
+									"key": "education_agent_experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "marn_number",
+									"value": "marn_number",
+									"type": "text"
+								},
+								{
+									"key": "migration_agent_certificate",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/computer_vision/image_processing/resize_overlay_watermark/28000_underlay_5ea7526b39d79.png"
+								},
+								{
+									"key": "migration_agent_experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "naati_certificate",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/computer_vision/image_processing/resize_overlay_watermark/b_5ea753914035c_121957252_2019_Ford_Ranger.jpg"
+								},
+								{
+									"key": "naati_experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "account_agent_experience",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "is_profile_complete",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "client_street_address",
+									"value": "dfsdfds",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_personal_information/17/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_personal_information",
+								"17",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_specific_agent_details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_personal_information/12/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_personal_information",
+								"12",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_agent_details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_personal_information",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_personal_information"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "get_all_agent_details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/admin_get_all_agents/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin_get_all_agents",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_user_details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/admin_panel/get_all_users/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin_panel",
+								"get_all_users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change_agent_status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "approve",
+									"type": "text"
+								},
+								{
+									"key": "agent_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/admin_panel/agent_status/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin_panel",
+								"agent_status",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change_user_status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "is_reactivate",
+									"value": "False",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/admin_panel/user_status/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin_panel",
+								"user_status",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_specific_agent_details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_personal_information/2/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_personal_information",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/admin_panel/get_all_orders",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin_panel",
+								"get_all_orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_specific_agent_details",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_personal_information/5/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_personal_information",
+								"5",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "agent_create_services",
+			"item": [
+				{
+					"name": "get_all_service",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_create_services",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_create_services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_specific_service",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_create_services/8",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_create_services",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_specific_service",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_create_services/1/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_create_services",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_service",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "titlezzzz",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "A12",
+									"type": "text"
+								},
+								{
+									"key": "sub_category",
+									"value": "A",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "400",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/computer_vision/image_processing/resize_overlay_watermark/audacious.jpg",
+									"disabled": true
+								},
+								{
+									"key": "user",
+									"value": "40",
+									"description": "Login user id (Agent login ID)",
+									"type": "text"
+								},
+								{
+									"key": "is_show",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "is_price_per_week",
+									"value": "False",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_create_services/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_create_services",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_service",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "title123",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "A",
+									"type": "text"
+								},
+								{
+									"key": "sub_category",
+									"value": "A",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "400",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/Users/ranaarslan/Documents/old_projects/computer_vision/image_processing/resize_overlay_watermark/b_5ea753914035c_121957252_2019_Ford_Ranger.jpg"
+								},
+								{
+									"key": "user",
+									"value": "40",
+									"description": "Login user id (Agent ID)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_create_services/9/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_create_services",
+								"9",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hide_and_shw_service",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "is_show",
+									"value": "False",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_create_services/2/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_create_services",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user_home_service",
+			"item": [
+				{
+					"name": "chat",
+					"item": [
+						{
+							"name": "get_all_client_agent_chats",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/v1/chats/?starred=1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"chats",
+										""
+									],
+									"query": [
+										{
+											"key": "starred",
+											"value": "1"
+										},
+										{
+											"key": "archive",
+											"value": "0",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change_chat_group_status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "type",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "group_name",
+											"value": "chat",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/chats/change_type/",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"chats",
+										"change_type",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "filter_services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/filter_courses?price=123",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"filter_courses"
+							],
+							"query": [
+								{
+									"key": "price",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_single_service_details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/filter_courses/1/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"filter_courses",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_specific_agents_details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/filter_agent/3/?sub_category=education_consulting&service=1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"filter_agent",
+								"3",
+								""
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "english",
+									"disabled": true
+								},
+								{
+									"key": "city",
+									"value": "ABCD",
+									"disabled": true
+								},
+								{
+									"key": "sub_category",
+									"value": "education_consulting"
+								},
+								{
+									"key": "service",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client_orders",
+			"item": [
+				{
+					"name": "create_order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "price",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "agent",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "client",
+									"value": "53",
+									"type": "text"
+								},
+								{
+									"key": "service",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/orders/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_agent_orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/orders/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_specific_agent_order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/v1/orders/5/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"5",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_order_status",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "is_paid",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/orders/1/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client_stripe_payments",
+			"item": [
+				{
+					"name": "client_pay_for_service",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "card_token",
+									"value": "tok_us",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "agent",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "service",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/stripe/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"stripe",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "client_refund_pay",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/stripe/refund/?stripe_id=5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"stripe",
+								"refund",
+								""
+							],
+							"query": [
+								{
+									"key": "stripe_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "client_approve_payment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/stripe/approve/?stripe_id=6",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"stripe",
+								"approve",
+								""
+							],
+							"query": [
+								{
+									"key": "stripe_id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "agent_balance",
+			"item": [
+				{
+					"name": "get_agent_total_balance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent_balance/1/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent_balance",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "service_review",
+			"item": [
+				{
+					"name": "add_service_review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rate",
+									"value": "4.6",
+									"type": "text"
+								},
+								{
+									"key": "review",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "client",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "agent",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/service_review/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"service_review",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_service_review",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rate",
+									"value": "4.6",
+									"type": "text"
+								},
+								{
+									"key": "review",
+									"value": "this is my review",
+									"type": "text"
+								},
+								{
+									"key": "service",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "client",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "agent",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/service_review/1/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"service_review",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_service_review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/service_review/1/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"service_review",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
